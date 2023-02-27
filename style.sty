@@ -1,0 +1,116 @@
+\usepackage[jis2004]{otf}
+\usepackage{calc, amssymb, url, ifthen, wrapfig, xcolor, graphicx, tabularx, amsmath, physics}
+\usepackage{booktabs, multirow}
+\usepackage[margin = 23truemm]{geometry}
+\usepackage[T1]{fontenc}
+
+\graphicspath{{./fig/}}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, raster, skins}
+\newtcbox{\code}[1][]{
+  colback=gray!10!white,
+  colframe=gray!20!white,
+  boxrule=1pt,
+  left=0mm,right=0mm,top=0mm,bottom=0mm,
+  box align=base,
+  nobeforeafter,
+  fontupper=\mcfamily
+}
+
+\usepackage{listings, jlisting}
+\renewcommand\lstlistingname{Src.}
+\lstset{
+ 	backgroundcolor = {\color[gray]{.99}},
+ 	breaklines      = true,
+ 	breakindent     = 10pt,
+ 	basicstyle      = \ttfamily\scriptsize,
+ 	commentstyle    = {\itshape \color[cmyk]{1,0.4,1,0}},
+ 	classoffset     = 0,
+ 	keywordstyle    = {\bfseries \color[cmyk]{0,1,0,0}},
+ 	stringstyle     = {\ttfamily \color[rgb]{0,0,1}},
+ 	frame           = TBrl,
+ 	framesep        = 5pt,
+ 	numbers         = left,
+ 	stepnumber      = 1,
+ 	numberstyle     = \tiny,
+ 	tabsize         = 4,
+ 	captionpos      = t
+}
+
+\usepackage{caption, subcaption}
+\captionsetup{format = hang, font = small, labelfont = bf, compatibility = false}
+\captionsetup[sub]{subrefformat = parens}
+\captionsetup[subfigure]{labelformat=simple}
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\@addtoreset{figure}{section}
+\@addtoreset{table}{section}
+\@addtoreset{equation}{section}
+\AtBeginDocument{
+    \renewcommand{\thelstlisting}{\thesection.\arabic{lstlisting}}
+    \@addtoreset{lstlisting}{subsection}
+}
+
+\newcommand{\sref}[1]{Src. \ref{#1}}
+\newcommand{\fref}[1]{図\ref{#1}}
+\newcommand{\tref}[1]{表\ref{#1}}
+\newcommand{\eref}[1]{式\ref{#1}}
+
+%% Title and Abstract
+\newcommand*{\class}[1]{\newcommand{\@class}{#1}}
+\renewcommand*{\title}[1]{\renewcommand{\@title}{#1}}
+\newcommand*{\teacher}[1]{\newcommand{\@teacher}{#1}}
+\newcommand*{\affiliation}[1]{\newcommand{\@affiliation}{#1}}
+\newcommand*{\grade}[1]{\newcommand{\@grade}{#1}}
+\newcommand*{\studentid}[1]{\newcommand{\@studentid}{#1}}
+\newcommand*{\email}[1]{\newcommand{\@email}{#1}}
+\renewcommand*{\author}[1]{\renewcommand{\@author}{#1}}
+\renewcommand*{\date}[1]{\renewcommand{\@date}{#1}}
+
+\renewcommand*{\maketitle}{
+    \vspace*{-5mm}
+    \begin{center}  
+        \large{\@class\hspace*{2mm}-\hspace*{2mm}\@title}
+    \end{center}
+    \vspace*{-4mm}
+    \begin{center}
+        \@affiliation
+        \hspace*{2mm}-\hspace*{2mm}\@studentid
+        \hspace*{2mm}-\hspace*{2mm}\@author
+    \end{center}
+    \vspace*{-4mm}
+    \hrulefill
+    \newline
+}
+
+\newcommand*{\longtitle}{
+    \renewcommand{\arraystretch}{1}
+    \setcounter{page}{0}
+    \thispagestyle{empty}
+    \vspace*{7cm}
+    \begin{center}
+        \LARGE{\@class\hspace*{2mm}-\hspace*{2mm}\@title}
+    \end{center}
+    \begin{center}
+        \large{【担当教員】\hspace*{2mm}\@teacher\hspace*{2mm}教員}
+    \end{center}
+    \vspace*{8truecm}
+    \begin{center}
+        \begin{table}[htbp]
+            \begin{tabular*}{\textwidth}{wc{0.5\textwidth}wc{2truecm}p{6truecm}} 
+                 &\large{【提出者】}& \large{\@author - \@studentid} \\
+                 & & \large{\@affiliation} \\
+                 & & \large{\@email} \\
+                 &\large{【提出日】}& \large{\@date} \\
+            \end{tabular*}
+        \end{table}
+    \end{center}
+    \renewcommand{\arraystretch}{0.8}
+    \newpage
+}
