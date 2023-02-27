@@ -1,0 +1,96 @@
+\documentclass[uplatex, dvipdfmx, fleqn, a4paper, 10pt]{ujreport}
+\usepackage{doc}
+
+\begin{document}
+
+\chapter{アルゴリズムとプログラミング}
+アルゴリズム設計，手続き型プログラム，計算量，データ構造，再帰，整列アルゴリズム，探索アルゴリズム
+\newpage
+\chapter{計算機システムとシステムプログラム}
+計算機システム分野：
+数の表現，演算制御，命令実行制御，記憶制御，入出力制御
+システムプログラム分野：
+プロセス管理，処理装置管理，記憶管理，入出力管理，ファイル管理
+\newpage
+\chapter{離散構造}
+集合・命題，関係，漸化式，論理関数，ブール代数，最簡積和形，命題論理，述語論理，導出原理，グラフ
+\newpage
+\chapter{計算理論}
+語・言語，有限オートマトン，正規表現・言語，形式文法とそのクラス，導出・認識・構文解析，文脈自由文法・言語，プッシュダウンオートマトン
+\newpage
+\chapter{ネットワーク}
+情報源符号化・通信路符号化，階層化モデル，プロトコルとインターフェース，各層プロトコルの設計・仕様・評価手法，ネットワークアプリケーション
+\newpage
+\chapter{電子回路と論理設計}
+ダイオード・トランジスタ，MOSFET，アナログ電子回路，演算増幅器，記憶素子，数の表現，論理代数と論理関数，組合せ論理回路，順序回路，算術演算回路
+\newpage
+\chapter{数学解析と信号処理}
+
+\begin{minipage}{0.33\linewidth}
+    \begin{itemize}
+        \item 微分方程式
+        \item フーリエ級数
+        \item ラプラス変換
+        \item Z変換
+    \end{itemize}
+\end{minipage}
+\hspace{0.05\linewidth}
+\begin{minipage}{0.33\linewidth}
+    \begin{itemize}
+        \item 連続時間信号のフーリエ解析
+        \item 離散時間信号のフーリエ解析
+        \item 複素関数
+    \end{itemize}
+\end{minipage}
+\hspace{0.05\linewidth}
+\begin{minipage}{0.33\linewidth}
+    \begin{itemize}
+        \item 信号の演算
+        \item サンプリング
+        \item フィルタ
+    \end{itemize}
+\end{minipage}
+
+\section{ラプラス変換}\label{sec:laplace_transform}
+
+\begin{defbox}{ラプラス変換}
+    $t \ge 0 < \infty$の連続関数$f(t)$について，
+    \begin{eqnarray}
+        F(s) = \mathcal{L}[f(t)](s) = \int_{0}^{\infty} f(t)e^{-st} dt
+        \label{eq:laplace_transform}
+    \end{eqnarray}
+    が収束するとき，$F(s)$を$f(t)$の\textbf{ラプラス変換}という．
+\end{defbox}
+
+\subsection{代表的なラプラス変換}
+
+\begin{exprbox}{指数関数のラプラス変換}
+    \begin{eqnarray}
+        \mathcal{L}[e^{at}](s) = \frac{1}{s - a}
+    \end{eqnarray}
+    \begin{proof}
+        \begin{eqnarray*}
+            \mathcal{L}[e^{at}](s) &=& \int_{0}^{\infty} e^{at} e^{-st} dt \\
+            &=& \lim_{T \to \infty} \int_{0}^{T} e^{(a - s)t} dt \\
+            &=& \left[\frac{1}{a - s}e^{(a - s)t}\right]_0^T \\
+            &=& 
+        \end{eqnarray*}
+    \end{proof}
+\end{exprbox}
+
+\subsection{ラプラス変換の性質}
+
+\subsection{ラプラス変換表}
+
+\subsection{ラプラス変換が存在する条件}
+
+\subsection{まとめ}
+
+\section{z変換}\label{sec:z_transform}
+
+\section{フーリエ変換}\label{sec:fourier_transform}
+
+\section{変換表}
+
+\newpage
+\end{document}
