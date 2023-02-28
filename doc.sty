@@ -65,9 +65,11 @@
 \titleformat{\subsection}{\color{capblue}}{}{0pt}{
 	\titleline[l]{\efbox[hidealllines, margin = 5pt, backgroundcolor = capblue]{\textcolor{white}{\textbf{\thesubsection}}}\hspace{1zw}#1}\vspace*{0pt}\titlerule
 }
+\titleformat{\subsubsection}{}{}{0pt}{\titleline[l]{【#1】}}
 \titlespacing*{\chapter}{0pt}{-10pt}{-10pt}
 \titlespacing*{\section}{0pt}{-10pt}{-10pt}
 \titlespacing*{\subsection}{0pt}{-10pt}{-10pt}
+\titlespacing*{\subsubsection}{0pt}{0pt}{-10pt}
 \titleclass{\chapter}{straight}
 
 %% fonts
