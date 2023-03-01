@@ -219,6 +219,7 @@
 \begin{exprbox}{像の微分法則}
     \begin{eqnarray}
         \mathcal{L}[t f(t)](s) = -\frac{d}{ds} F(s),\hspace{10pt}\mathcal{L}[t^n f(t)] = \left(-\frac{d}{ds}\right)^n F(s)
+        \label{eq:laplace_image_derivative}
     \end{eqnarray}
     \begin{proof}
         $F_n(s) = \left(-\frac{d}{ds}\right)^n F_0(s)$として，
@@ -303,6 +304,33 @@
 \subsection{ラプラス変換の応用}
 
 \subsubsection{特殊な積分}
+
+ラプラス変換を用いることで，いくつかの特殊な積分を簡単に解ける．
+以下に例を示す．
+
+\begin{exprbox}{ディリクレ積分}
+    \begin{eqnarray}
+        \int_{0}^{\infty} \frac{\sin t}{t} dt = \frac{\pi}{2}
+    \end{eqnarray}
+    \begin{proof}
+        \begin{eqnarray*}
+            J(s) = \mathcal{L}\left[\frac{\sin t}{t}\right] = \int_{0}^{\infty} \frac{\sin t}{t} e^{-st} dt
+        \end{eqnarray*}
+        と定義する．像の微分法則(\eref{eq:laplace_image_derivative})より，
+        \begin{eqnarray*}
+            \frac{dJ}{ds}(s) = - \mathcal{L}\left[t \frac{\sin t}{t}\right](s) = -\mathcal{L}[\sin t](s) = - \frac{1}{s^2 + 1}
+        \end{eqnarray*}
+        となるので，任意定数$C$について次の式が成り立つ．
+        \begin{eqnarray*}
+            J(s) = -\arcsin s + C
+        \end{eqnarray*}
+        $\lim_{s \to \infty} J(s) = 0$，$\lim_{s \to \infty} = \frac{\pi}{2}$より，$C = \frac{\pi}{2}$である．
+        したがって，$J(0) = \frac{\pi}{2}$より，
+        \begin{eqnarray*}
+            \int_{0}^{\infty} \frac{\sin t}{t} dt = \frac{\pi}{2}
+        \end{eqnarray*}
+    \end{proof}
+\end{exprbox}
 
 \subsubsection{常微分方程式}
 
